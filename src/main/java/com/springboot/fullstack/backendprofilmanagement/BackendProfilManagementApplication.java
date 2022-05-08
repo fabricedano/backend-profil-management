@@ -20,7 +20,7 @@ public class BackendProfilManagementApplication{
 		SpringApplication.run(BackendProfilManagementApplication.class, args);
 	}
 	
-	@Bean
+	/*@Bean
     CommandLineRunner init(UserRepository userRepository, TypeUserRepository typerUserReposity) {
         return args -> {
             Stream.of("Paul").forEach(name -> {
@@ -35,6 +35,6 @@ public class BackendProfilManagementApplication{
             });
             userRepository.findAll().forEach(e -> System.out.println(e.toString()));
         };
-    }
+    }*/
 
 }

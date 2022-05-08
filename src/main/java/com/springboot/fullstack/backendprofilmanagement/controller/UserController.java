@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.fullstack.backendprofilmanagement.exception.ResourceNotFoundException;
+import com.springboot.fullstack.backendprofilmanagement.model.TypeUser;
 import com.springboot.fullstack.backendprofilmanagement.model.User;
 import com.springboot.fullstack.backendprofilmanagement.repository.UserRepository;
 
@@ -37,7 +38,12 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    void addUser(@RequestBody User user) {
+    void addUser(@RequestBody User dtoUser) {
+    	TypeUser typeUser = new TypeUser(dtoUser.getTypeUser().getType());
+    	User user = new User(dtoUser.getName(), dtoUser.getFirstName() , dtoUser.getEmail());
+    	
+    	user.setTypeUser(typeUser);
+    	typeUser.setUser(user);
         userRepository.save(user);
     }
     

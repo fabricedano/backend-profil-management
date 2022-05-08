@@ -62,7 +62,5 @@ public class TypeUser implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-
 	
 }
